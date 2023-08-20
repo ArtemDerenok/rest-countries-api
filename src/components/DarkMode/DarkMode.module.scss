@@ -1,0 +1,15 @@
+@import "../../styles/variables";
+
+.btn {
+  all: unset;
+  cursor: pointer;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
