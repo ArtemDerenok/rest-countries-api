@@ -1,8 +1,10 @@
 import { useAppSelector } from "../redux/hooks";
 import styles from "./App.module.scss";
+import FilterBar from "./FilterBar/FilterBar";
 import Header from "./Header/Header";
+import SearchBar from "./SearchBar/SearchBar";
 
-function App() {
+const App = () => {
   const isDarkMode = useAppSelector((state) => state.darkMode.mode);
 
   return (
@@ -12,8 +14,12 @@ function App() {
       }`}
     >
       <Header />
+      <div className={styles.container__boxOne}>
+        <SearchBar />
+        <FilterBar />
+      </div>
     </div>
   );
-}
+};
 
 export default App;

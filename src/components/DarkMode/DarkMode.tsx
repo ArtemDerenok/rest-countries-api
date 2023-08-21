@@ -15,9 +15,13 @@ const DarkMode = () => {
   return (
     <button className={styles.btn} onClick={handleMode}>
       {isDarkMode ? (
-        <img className={styles.icon} src={darkModeIcon} alt="dark mode" />
+        <img className={styles.btn__icon} src={darkModeIcon} alt="dark mode" />
       ) : (
-        <img className={styles.icon} src={lightModeIcon} alt="light mode" />
+        <img
+          className={styles.btn__icon}
+          src={lightModeIcon}
+          alt="light mode"
+        />
       )}
       Dark Mode
     </button>

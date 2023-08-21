@@ -11,7 +11,7 @@ const Header = () => {
         isDarkMode ? styles.darkBackground : null
       }`}
     >
-      <h1 className={styles.title}>Where in the world?</h1>
+      <h1 className={styles.header__title}>Where in the world?</h1>
       <DarkMode />
     </header>
   );
