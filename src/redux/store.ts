@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import darkModeSlice from "./slices/darkModeSlice";
+import dataSlice from "./slices/dataSlice";
 
 export const store = configureStore({
   reducer: {
-    darkMode: darkModeSlice
+    darkMode: darkModeSlice,
+    data: dataSlice
   },
   devTools: process.env.NODE_ENV !== 'production'
 });
