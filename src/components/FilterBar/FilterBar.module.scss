@@ -1,9 +1,11 @@
 @import "../../styles/variables";
 
 .filter {
+  position: absolute;
+  right: 0px;
   z-index: 10;
   overflow: hidden;
-  height: 45px;
+  height: 52px;
   border-radius: 5px;
   transition: 1s all;
 
