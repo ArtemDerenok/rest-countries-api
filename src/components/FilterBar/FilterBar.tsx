@@ -1,15 +1,23 @@
 import arrowDownImg from "../../assets/icons/arrowDown.svg";
 import arrowUpImg from "../../assets/icons/arrowUp.svg";
 import { useState } from "react";
-import { useAppSelector } from "../../redux/hooks";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import styles from "./FilterBar.module.scss";
+import { filterCountries } from "../../redux/slices/dataSlice";
 
 const FilterBar = () => {
   const [isShow, setIsShow] = useState(false);
   const isDarkMode = useAppSelector((state) => state.darkMode.mode);
+  const dispatch = useAppDispatch();
 
   const handleMenu = () => {
     setIsShow((prev) => !prev);
+  };
+
+  const handleFilter = (element: React.MouseEvent<HTMLElement>) => {
+    const value = (element.target as HTMLElement).innerText;
+    console.log(value);
+    dispatch(filterCountries(value));
   };
 
   return (
@@ -25,7 +33,7 @@ const FilterBar = () => {
           alt={`${isShow ? "up" : "down"}`}
         />
       </div>
-      <ul className={styles.filter__list}>
+      <ul className={styles.filter__list} onClick={handleFilter}>
         <li className={styles.filter__item}>Africa</li>
         <li className={styles.filter__item}>America</li>
         <li className={styles.filter__item}>Asia</li>

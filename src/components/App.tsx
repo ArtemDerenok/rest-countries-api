@@ -1,13 +1,19 @@
-import { useAppSelector } from "../redux/hooks";
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import FilterBar from "./FilterBar/FilterBar";
 import Header from "./Header/Header";
 import SearchBar from "./SearchBar/SearchBar";
 import Card from "./Card/Card";
+import { useEffect } from "react";
+import { filterCountries } from "../redux/slices/dataSlice";
 import styles from "./App.module.scss";
 
 const App = () => {
   const { darkMode, data } = useAppSelector((state) => state);
-  const cardData = data.allCountries[0];
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(filterCountries("all"));
+  }, []);
 
   return (
     <div
@@ -21,13 +27,16 @@ const App = () => {
         <FilterBar />
       </div>
       <div className={styles.container__boxTwo}>
-        <Card
-          flag={cardData.flags.png}
-          name={cardData.name}
-          population={cardData.population}
-          region={cardData.region}
-          capital={cardData.capital}
-        />
+        {data.currentCountries.map((elem, index) => (
+          <Card
+            flag={elem.flags.png}
+            name={elem.name}
+            population={elem.population}
+            region={elem.region}
+            capital={elem.capital}
+            key={index}
+          />
+        ))}
       </div>
     </div>
   );

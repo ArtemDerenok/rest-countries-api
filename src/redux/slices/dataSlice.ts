@@ -62,18 +62,86 @@ interface ICountry {
 }
 
 interface IInitialState {
-  allCountries: any[]
+  allCountries: any[],
+  currentCountries: any[]
 }
 
 const initialState: IInitialState = {
   allCountries: data,
+  currentCountries: []
 }
 
 export const dataSlice = createSlice({
   name: 'data',
   initialState,
-  reducers: {}
+  reducers: {
+    filterCountries: (state, action) => {
+      if (action.payload === 'all') {
+        state.currentCountries = state.allCountries.slice(0, 8);
+      } else if (action.payload === 'Africa') {
+        state.currentCountries = [];
+
+        for (let i = 0; i < state.allCountries.length; i++) {
+          if (state.currentCountries.length === 8) {
+            break;
+          }
+
+          if (state.allCountries[i].region === action.payload) {
+            state.currentCountries.push(state.allCountries[i]);
+          }
+        }
+      } else if (action.payload === 'America') {
+        state.currentCountries = [];
+
+        for (let i = 0; i < state.allCountries.length; i++) {
+          if (state.currentCountries.length === 8) {
+            break;
+          }
+
+          if (state.allCountries[i].region === 'Americas') {
+            state.currentCountries.push(state.allCountries[i]);
+          }
+        }
+      } else if (action.payload === 'Asia') {
+        state.currentCountries = [];
+
+        for (let i = 0; i < state.allCountries.length; i++) {
+          if (state.currentCountries.length === 8) {
+            break;
+          }
+
+          if (state.allCountries[i].region === action.payload) {
+            state.currentCountries.push(state.allCountries[i]);
+          }
+        }
+      } else if (action.payload === 'Europe') {
+        state.currentCountries = [];
+
+        for (let i = 0; i < state.allCountries.length; i++) {
+          if (state.currentCountries.length === 8) {
+            break;
+          }
+
+          if (state.allCountries[i].region === action.payload) {
+            state.currentCountries.push(state.allCountries[i]);
+          }
+        }
+      } else if (action.payload === 'Oceania') {
+        state.currentCountries = [];
+
+        for (let i = 0; i < state.allCountries.length; i++) {
+          if (state.currentCountries.length === 8) {
+            break;
+          }
+
+          if (state.allCountries[i].region === action.payload) {
+            state.currentCountries.push(state.allCountries[i]);
+          }
+        }
+      }
+    }
+  }
 });
 
-export const { } = dataSlice.actions;
+export const { filterCountries } = dataSlice.actions;
 export default dataSlice.reducer;
