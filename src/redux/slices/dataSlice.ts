@@ -109,7 +109,7 @@ export const dataSlice = createSlice({
 
       for (let i = 0; i < state.allCountries.length; i++) {
         if (action.payload === '') {
-          state.currentCountries = state.allCountries.slice(0, 8);
+          state.currentCountries = state.allCountries.slice(0, 7);
         }
 
         if (state.allCountries[i].name.toLowerCase().includes(action.payload.toLowerCase())) {
