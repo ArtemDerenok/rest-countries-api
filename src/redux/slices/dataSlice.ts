@@ -78,7 +78,7 @@ export const dataSlice = createSlice({
     filterCountries: (state, action) => {
       if (action.payload === 'all') {
         state.currentCountries = state.allCountries.slice(0, 8);
-      } else if (action.payload === 'Africa') {
+      } else if (action.payload === 'Africa' || action.payload === 'Asia' || action.payload === 'Europe' || action.payload === 'Oceania') {
         state.currentCountries = [];
 
         for (let i = 0; i < state.allCountries.length; i++) {
@@ -102,46 +102,24 @@ export const dataSlice = createSlice({
             state.currentCountries.push(state.allCountries[i]);
           }
         }
-      } else if (action.payload === 'Asia') {
-        state.currentCountries = [];
+      }
+    },
+    searchCountry: (state, action) => {
+      state.currentCountries = [];
 
-        for (let i = 0; i < state.allCountries.length; i++) {
-          if (state.currentCountries.length === 8) {
-            break;
-          }
-
-          if (state.allCountries[i].region === action.payload) {
-            state.currentCountries.push(state.allCountries[i]);
-          }
+      for (let i = 0; i < state.allCountries.length; i++) {
+        if (action.payload === '') {
+          state.currentCountries = state.allCountries.slice(0, 8);
         }
-      } else if (action.payload === 'Europe') {
-        state.currentCountries = [];
 
-        for (let i = 0; i < state.allCountries.length; i++) {
-          if (state.currentCountries.length === 8) {
-            break;
-          }
+        if (state.allCountries[i].name.toLowerCase().includes(action.payload.toLowerCase())) {
+          state.currentCountries.push(state.allCountries[i]);
 
-          if (state.allCountries[i].region === action.payload) {
-            state.currentCountries.push(state.allCountries[i]);
-          }
-        }
-      } else if (action.payload === 'Oceania') {
-        state.currentCountries = [];
-
-        for (let i = 0; i < state.allCountries.length; i++) {
-          if (state.currentCountries.length === 8) {
-            break;
-          }
-
-          if (state.allCountries[i].region === action.payload) {
-            state.currentCountries.push(state.allCountries[i]);
-          }
         }
       }
     }
   }
 });
 
-export const { filterCountries } = dataSlice.actions;
+export const { filterCountries, searchCountry } = dataSlice.actions;
 export default dataSlice.reducer;
