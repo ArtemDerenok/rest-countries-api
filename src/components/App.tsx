@@ -5,10 +5,11 @@ import SearchBar from "./SearchBar/SearchBar";
 import Card from "./Card/Card";
 import { useEffect } from "react";
 import { filterCountries } from "../redux/slices/dataSlice";
+import { Outlet } from "react-router-dom";
 import styles from "./App.module.scss";
 
 const App = () => {
-  const { darkMode, data } = useAppSelector((state) => state);
+  const { darkMode } = useAppSelector((state) => state);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -27,16 +28,7 @@ const App = () => {
         <FilterBar />
       </div>
       <div className={styles.container__boxTwo}>
-        {data.currentCountries.map((elem, index) => (
-          <Card
-            flag={elem.flags.png}
-            name={elem.name}
-            population={elem.population}
-            region={elem.region}
-            capital={elem.capital}
-            key={index}
-          />
-        ))}
+        <Outlet />
       </div>
     </div>
   );
