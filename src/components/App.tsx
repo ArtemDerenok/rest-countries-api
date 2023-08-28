@@ -23,13 +23,7 @@ const App = () => {
       }`}
     >
       <Header />
-      <div className={styles.container__boxOne}>
-        <SearchBar />
-        <FilterBar />
-      </div>
-      <div className={styles.container__boxTwo}>
-        <Outlet />
-      </div>
+      <Outlet />
     </div>
   );
 };
