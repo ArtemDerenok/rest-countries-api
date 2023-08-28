@@ -84,3 +84,29 @@
 .linkDarkMode {
   background-color: $DARK_BLUE;
 }
+
+@media (max-width: 680px) {
+  .page {
+    &__box {
+      flex-direction: column;
+    }
+
+    &__boxOne {
+      display: flex;
+      justify-content: center;
+    }
+
+    &__link {
+      margin-left: 10px;
+    }
+
+    &__img {
+      width: 300px;
+      height: 200px;
+    }
+
+    &__boxTwo {
+      padding-left: 10px;
+    }
+  }
+}

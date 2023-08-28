@@ -19,3 +19,9 @@
   background-color: $DARK_BLUE;
   color: $WHITE;
 }
+
+@media (max-width: 680px) {
+  .header {
+    padding: 15px 20px 15px 20px;
+  }
+}
