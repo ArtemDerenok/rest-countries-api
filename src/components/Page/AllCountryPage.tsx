@@ -5,7 +5,7 @@ import SearchBar from "../SearchBar/SearchBar";
 import styles from "./AllCountryPage.module.scss";
 
 const AllCountryPage = () => {
-  const { data } = useAppSelector((state) => state);
+  const { data, darkMode } = useAppSelector((state) => state);
   return (
     <>
       <div className={styles.boxOne}>

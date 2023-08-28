@@ -23,3 +23,9 @@
   color: $WHITE;
   background-image: url("../../assets/icons/searchWhite.svg");
 }
+
+@media (max-width: 680px) {
+  .search {
+    width: 205px;
+  }
+}

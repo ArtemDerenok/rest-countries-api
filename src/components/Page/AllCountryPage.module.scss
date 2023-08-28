@@ -4,6 +4,7 @@
   max-width: 1280px;
   margin: 0 auto;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
   position: relative;
@@ -17,4 +18,16 @@
   justify-content: space-between;
   gap: 40px;
   flex-wrap: wrap;
+}
+
+@media (max-width: 680px) {
+  .boxOne {
+    flex-direction: column;
+    margin-bottom: 120px;
+    padding-left: 10px;
+  }
+
+  .boxTwo {
+    justify-content: center;
+  }
 }

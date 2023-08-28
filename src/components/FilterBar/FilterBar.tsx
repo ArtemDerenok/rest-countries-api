@@ -16,7 +16,7 @@ const FilterBar = () => {
 
   const handleFilter = (element: React.MouseEvent<HTMLElement>) => {
     const value = (element.target as HTMLElement).innerText;
-    console.log(value);
+
     dispatch(filterCountries(value));
   };
 
@@ -34,11 +34,41 @@ const FilterBar = () => {
         />
       </div>
       <ul className={styles.filter__list} onClick={handleFilter}>
-        <li className={styles.filter__item}>Africa</li>
-        <li className={styles.filter__item}>America</li>
-        <li className={styles.filter__item}>Asia</li>
-        <li className={styles.filter__item}>Europe</li>
-        <li className={styles.filter__item}>Oceania</li>
+        <li
+          className={`${styles.filter__item} ${
+            isDarkMode ? styles.darkBackground : null
+          }`}
+        >
+          Africa
+        </li>
+        <li
+          className={`${styles.filter__item} ${
+            isDarkMode ? styles.darkBackground : null
+          }`}
+        >
+          America
+        </li>
+        <li
+          className={`${styles.filter__item} ${
+            isDarkMode ? styles.darkBackground : null
+          }`}
+        >
+          Asia
+        </li>
+        <li
+          className={`${styles.filter__item} ${
+            isDarkMode ? styles.darkBackground : null
+          }`}
+        >
+          Europe
+        </li>
+        <li
+          className={`${styles.filter__item} ${
+            isDarkMode ? styles.darkBackground : null
+          }`}
+        >
+          Oceania
+        </li>
       </ul>
     </div>
   );
